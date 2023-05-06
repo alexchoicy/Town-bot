@@ -32,6 +32,24 @@ function readCommands(directory, subDirectory = ""){
     bot.commands = new Discord.Collection()
     readCommands('./discord/slash_commands');
 
+// function readEvent(directory, subDirectory = ""){
+//     const eventsPath = path.resolve(__dirname, directory);
+//     const events = fs.readdirSync(eventsPath);
+
+//     for(const file of events){
+//         const eventName = file.split(".");
+//         if(eventName[1]){
+//             const event = require(eventsPath+`/${file}`);
+
+//             bot.on(eventName.name, event.execute(null, bot));
+//         }
+//     }
+// }
+
+// readEvent('./Events');
+
+
+
 bot.on('interactionCreate', async (interaction) => {
     if (!interaction.isCommand()) return;
 	const { commandName } = interaction;
